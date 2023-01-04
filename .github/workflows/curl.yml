@@ -1,3 +1,4 @@
+name: curl planete
 on: push
 jobs:
   curl:
