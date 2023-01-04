@@ -1,0 +1,13 @@
+name: config pyhton
+on: [pull_request]
+jobs:
+  configPython:
+    runs-on: unbuntu-lastest
+    steps:
+    - name: configuration python
+    - uses: actions/checkout@v3
+    - uses: action/setup-python@v4
+    - run: python main.py
+      
+    
+    
