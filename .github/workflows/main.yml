@@ -1,6 +1,9 @@
 name: newPush
-on:
-  push:
-    branches:
-    - main echo "New push !"
-    - release/*    
+on: [push]
+jobs:
+  New-Push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: New Push
+        run: echo "New Push !"
+
