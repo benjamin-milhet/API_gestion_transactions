@@ -1,2 +1,6 @@
 name: newPush
-echo "New push !"
+on:
+  push:
+    branches:
+    - main echo "New push !"
+    - release/*    
