@@ -2,7 +2,7 @@ name: config pyhton
 on: [pull_request, workflow_dispatch]
 jobs:
   configPython:
-    runs-on: unbuntu-lastest
+    runs-on: unbuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: action/setup-python@v4
