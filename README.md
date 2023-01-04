@@ -1,4 +1,4 @@
-# GHYS_MILHET_4A_ILC
+# GHYS_MILHET_4A_ILC_WORKFLOW
 
 ## Membres du groupe
  - Clément GHYS
