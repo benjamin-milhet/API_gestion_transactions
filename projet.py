@@ -3,7 +3,11 @@ import datetime
 
 
 
+
 app = Flask(__name__)
+
+
+
 @app.route("/")
 def hello_world():
 	return "Hello,world!"
@@ -18,14 +22,17 @@ def get_list():
 	return res
 
 
+@app.post("/add")
+def add():
+	liste_transaction[len(liste_transaction)] = (request.form["P1"],request.form["P2"],request.form["date"],request.form["s"])
+
+	return  get_list()
+
+
 '''
 #curl http://127.0.0.1:5000/dico
 
-@app.post("/add")
-def add():
-	mon_dictionnaire[len(mon_dictionnaire)] = request.form["name"]		
 
-	return  str(mon_dictionnaire)
 #curl -X POST -d  "name=tricycle" http://127.0.0.1:5000/add
 @app.post("/del")
 def delete():
