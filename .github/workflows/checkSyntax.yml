@@ -5,4 +5,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Syntax
-        run: python3 ./projet.py check_syntax
+        run: python3 ../projet.py check_syntax
