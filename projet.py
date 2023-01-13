@@ -1,8 +1,7 @@
 from flask import Flask, request
 import datetime
-
-
-
+from personne import*
+import sys
 
 app = Flask(__name__)
 
@@ -11,6 +10,8 @@ app = Flask(__name__)
 @app.route("/")
 def hello_world():
 	return "Hello,world!"
+
+
 
 
 liste_transaction={0: ("jean", "pierre", datetime.date.today(),100)}
@@ -28,6 +29,16 @@ def add():
 
 	return  get_list()
 
+
+if __name__ == '__main__':
+	if len(sys.argv) == 1:
+		if sys.argv[1] == "check_syntax":
+			print("Build [OK]")
+			exit(0)
+		else:
+			print("Passed argument not supported ! Supported arguments are : check_syntax")
+			exit(1)	
+	app.run(debug=True)
 
 '''
 #curl http://127.0.0.1:5000/dico
