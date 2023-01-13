@@ -4,5 +4,6 @@ jobs:
   Check-Syntax:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - name: Check Syntax
         run: python3 projet.py check_syntax
