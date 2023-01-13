@@ -3,7 +3,7 @@ FROM python:3.8-alpine
 
 RUN pip install Flask
 
-ENV FLASK_APP=main.py
+ENV FLASK_APP=projet.py
 ENV FLASK_ENV=development
 
 COPY  . .
