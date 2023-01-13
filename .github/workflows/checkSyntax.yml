@@ -1,0 +1,8 @@
+name: checkSyntax
+on: [push]
+jobs:
+  New-Push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Syntax
+        run: python projet.py check_syntax
