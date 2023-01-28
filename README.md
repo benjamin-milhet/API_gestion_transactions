@@ -7,7 +7,7 @@
 ## ILC
 
 ## Langage
-Pour réaliser notre API, nous allons utiliser le langage Python.
+Pour réaliser notre API, nous allons utiliser le langage Python avec le framework Flask permettant le dévelopement web avec Python. L'objectif de notre API est réaliser un système de transaction d'argent entre deux personnes.
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
