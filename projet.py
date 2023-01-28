@@ -53,11 +53,6 @@ def getDataPersonne():
 def getSoldePersonne():
     return str(getPersonne(request.form.get("nom")).solde)
 
-def getListePersonne():
-        res = ""
-        for p in liste_personne:
-                res += p + "\n"
-
 def sortTransactionsParDate(transactions):
     return sorted(transactions.items(), key=lambda x: x[1][2])
 
