@@ -1,6 +1,9 @@
 name: Docker push GCR
 
 on:
+  push:
+      tags:
+        - 'v*.*.*'
   workflow_dispatch:
 
 jobs:
@@ -29,6 +32,7 @@ jobs:
         with:
           # Emplacement du Dockerfile
           file: Dockerfile
+          #tags: ${{ steps.tag.outputs.value }}
           tags: eu.gcr.io/esirem/4a_ilc/ghys_milhet/cicd:${{ github.ref_name }}
           # Emplacement des fichiers 
           context: ""
