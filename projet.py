@@ -1,34 +1,71 @@
 from flask import Flask, request
 import datetime
-from personne import*
+from personne import *
 import sys
+import csv
 
 app = Flask(__name__)
 
-
+liste_transaction = {0: ("jean", "pierre", datetime.datetime.now(), 100)}
+liste_personne = []
 
 @app.route("/")
 def hello_world():
-	return "Hello,world!"
+	return "Hello, world!"
 
-
-
-
-liste_transaction={0: ("jean", "pierre", datetime.date.today(),100)}
-@app.get("/listetransaction")
-def get_list():
-	res =""
-	for i in liste_transaction.items():
-		res+= str(i[1])+"\n"
+@app.route("/getTransactions", methods=['GET'])
+def getTransactions():
+	res = ""
+	for i in sortTransactionsParDate(liste_transaction):
+		res += str(i[1]) + "\n"
 	return res
 
-
-@app.post("/add")
+@app.route("/addTransaction", methods=['POST'])
 def add():
-	liste_transaction[len(liste_transaction)] = (request.form["P1"],request.form["P2"],request.form["date"],request.form["s"])
+    solde = int(request.form.get("s"))
+    transaction = (request.form.get("P1"), request.form.get("P2"), datetime.datetime.now(), solde)
+    liste_transaction[len(liste_transaction)] = transaction
 
-	return  get_list()
+    P1 = getPersonne(request.form.get("P1"))
+    P2 = getPersonne(request.form.get("P2"))
 
+    P1.solde = int(P1.solde) - solde
+    P2.solde = int(P2.solde) + solde
+
+    P1.transactions[len(P1.transactions)] = transaction
+    P2.transactions[len(P2.transactions)] = transaction
+
+    return getTransactions()
+
+@app.route("/chargerFichier", methods=['POST'])
+def chargerFichierCSV():
+        with open(request.form.get("fichier"), "r") as csvfile:
+                spamreader = csv.reader(csvfile, delimiter = request.form.get("delimiter"))
+                for row in spamreader:
+                        liste_personne.append(Personne(row[0],row[1]))
+        return "Nombre de personne chargée : " + str(len(liste_personne)) + "\n"
+
+@app.route("/getPersonne", methods=['GET'])
+def getDataPersonne():
+    return str(getPersonne(request.form.get("nom")))
+
+@app.route("/getSoldePersonne", methods=['GET'])
+def getSoldePersonne():
+    return str(getPersonne(request.form.get("nom")).solde)
+
+def getListePersonne():
+        res = ""
+        for p in liste_personne:
+                res += p + "\n"
+
+def sortTransactionsParDate(transactions):
+    return sorted(transactions.items(), key=lambda x: x[1][2])
+
+def getPersonne(nom):
+    for personne in liste_personne:
+        if personne.name == nom:
+            return personne
+    return None
 
 if __name__ == '__main__':
 	if len(sys.argv) > 1:
@@ -40,22 +77,3 @@ if __name__ == '__main__':
 			exit(1)
 	app.run(debug=True)
 
-'''
-#curl http://127.0.0.1:5000/dico
-
-
-#curl -X POST -d  "name=tricycle" http://127.0.0.1:5000/add
-@app.post("/del")
-def delete():
-	del mon_dictionnaire[int(request.form["id"])]
-	return str(mon_dictionnaire)
-#curl -X POST -d  "id=2" http://127.0.0.1:5000/del
-
-@app.post("/modif")
-def modif():
-	mon_dictionnaire[int(request.form["id"])] = request.form["name"]		
-	return str(mon_dictionnaire)
-# curl -X POST -d  "id=2" -d "name=truc" http://127.0.0.1:5000/modif
-if __name__ == '__main__':
-    app.run()
-'''
