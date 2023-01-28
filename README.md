@@ -14,7 +14,6 @@ Pour réaliser notre API, nous allons utiliser le langage Python.
 
 [![newPush](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/main.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/main.yml)
 [![curl planete](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/curl.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/curl.yml)
-[![config pyhton](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/configPython.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/configPython.yml)
 [![checkSyntax](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/checkSyntax.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/checkSyntax.yml)
 [![Docker push GCR](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/Docker_push_GCR.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/Docker_push_GCR.yml)
 
