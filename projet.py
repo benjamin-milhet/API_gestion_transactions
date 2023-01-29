@@ -39,10 +39,10 @@ def add():
 
 @app.route("/chargerFichier", methods=['POST'])
 def chargerFichierCSV():
-        resPersonne = chargerFichierPersonne(request.form.get("fichierPersonne"), request.form.get("delimiter"))
-	resTransaction = chargerFichierTransaction(request.form.get("fichierTransaction"), request.form.get("delimiter"))
-	
-	return resPersonne + resTransaction
+    resPersonne = chargerFichierPersonne(request.form.get("fichierPersonne"), request.form.get("delimiter"))
+    resTransaction = chargerFichierTransaction(request.form.get("fichierTransaction"), request.form.get("delimiter"))
+
+    return resPersonne + resTransaction
 
 def chargerFichierPersonne(fichierPersonne, _delimiter):
         with open(fichierPersonne, "r") as csvfile:
