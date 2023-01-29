@@ -39,11 +39,40 @@ def add():
 
 @app.route("/chargerFichier", methods=['POST'])
 def chargerFichierCSV():
-        with open(request.form.get("fichier"), "r") as csvfile:
-                spamreader = csv.reader(csvfile, delimiter = request.form.get("delimiter"))
+        resPersonne = chargerFichierPersonne(request.form.get("fichierPersonne"), request.form.get("delimiter"))
+	resTransaction = chargerFichierTransaction(request.form.get("fichierTransaction"), request.form.get("delimiter"))
+	
+	return resPersonne + resTransaction
+
+def chargerFichierPersonne(fichierPersonne, _delimiter):
+        with open(fichierPersonne, "r") as csvfile:
+                spamreader = csv.reader(csvfile, delimiter = _delimiter)
                 for row in spamreader:
                         liste_personne.append(Personne(row[0],row[1]))
-        return "Nombre de personne chargée : " + str(len(liste_personne)) + "\n"
+        return "Nombre de personne chargée : " + str(len(spamreader)) + "\n"
+
+def chargerFichierTransaction(fichierTransaction, _delimiter):
+        with open(fichierTransaction, "r") as csvfile:
+                spamreader = csv.reader(csvfile, delimiter = _delimiter)
+
+                for row in spamreader:
+			rowP1 = row[0]
+			rowP2 = row[1]
+			date = row[2]
+			s = int(row[3])
+                        transaction = (rowP1, rowP2, date, s)
+                        liste_transaction[len(liste_transaction)] = transaction
+			
+			P1 = getPersonne(rowP1)
+		        P2 = getPersonne(rowP2)
+
+		        P1.solde = int(P1.solde) - s
+		        P2.solde = int(P2.solde) + s
+
+		        P1.transactions[len(P1.transactions)] = transaction
+                        P2.transactions[len(P2.transactions)] = transaction
+			
+        return "Nombre de transaction chargée : " + str(len(spamreader)) + "\n"
 
 @app.route("/getPersonne", methods=['GET'])
 def getDataPersonne():
@@ -52,8 +81,6 @@ def getDataPersonne():
 @app.route("/getSoldePersonne", methods=['GET'])
 def getSoldePersonne():
     return str(getPersonne(request.form.get("nom")).solde)
-
-
 
 def sortTransactionsParDate(transactions):
     return sorted(transactions.items(), key=lambda x: x[1][2])
