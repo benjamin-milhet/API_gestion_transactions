@@ -11,7 +11,7 @@ info:
      - Afficher une liste des transactions dans l’ordre chronologique liées à une personne.
      - Afficher le solde du compte de la personne.
      - Importer des données depuis un fichier csv.
-  version: '1.0.0-alpha'
+  version: 'v1.0.0'
 
 host: 127.0.0.1:5000
 
