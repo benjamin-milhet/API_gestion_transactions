@@ -60,7 +60,7 @@ def chargerFichierTransaction(fichierTransaction, _delimiter):
 			rowP2 = row[1]
 			date = row[2]
 			s = int(row[3])
-                        transaction = (rowP1, rowP2, date, s)
+			transaction = (rowP1, rowP2, date, s)
                         liste_transaction[len(liste_transaction)] = transaction
 			
 			P1 = getPersonne(rowP1)
