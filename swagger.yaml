@@ -1,0 +1,118 @@
+swagger: '2.0'
+info:
+  title: API de gestion de transactions
+  description: >-
+    Cette API développée en python a pour but de pouvoir gérer des transactions
+    entre des personnes.
+
+    ### Fonctionnalités:
+     - Enregistrer une transaction.
+     - Afficher une liste de toutes les transactions dans l’ordre chronologique.
+     - Afficher une liste des transactions dans l’ordre chronologique liées à une personne.
+     - Afficher le solde du compte de la personne.
+     - Importer des données depuis un fichier csv.
+  version: '1.0.0-alpha'
+
+host: 127.0.0.1:5000
+
+schemes:
+  - http
+consumes:
+  - application/x-www-form-urlencoded
+  - multipart/form-data
+produces:
+  - application/json
+paths:
+  /:
+    get:
+      summary: Accueil
+      description: Retourne "Hello, world!"
+      responses:
+        200:
+          description: Succès
+          schema:
+            type: string
+  /getTransactions:
+    get:
+      summary: Récupérer les transactions
+      description: Retourne les transactions classées par date
+      responses:
+        200:
+          description: Succès
+          schema:
+            type: string
+  /addTransaction:
+    post:
+      summary: Ajouter une transaction
+      description: Ajouter une transaction entre deux personnes avec un solde donné
+      parameters:
+        - in: formData
+          name: P1
+          description: Nom de la première personne
+          type: string
+          required: true
+        - in: formData
+          name: P2
+          description: Nom de la deuxième personne
+          type: string
+          required: true
+        - in: formData
+          name: s
+          description: Solde de la transaction
+          type: integer
+          required: true
+      responses:
+        200:
+          description: Succès
+          schema:
+            type: string
+  /chargerFichier:
+    post:
+      summary: Charger un fichier
+      description: Charger un fichier CSV contenant les informations des personnes
+      parameters:
+        - in: formData
+          name: fichier
+          description: Nom du fichier
+          type: string
+          required: true
+        - in: formData
+          name: delimiter
+          description: Délimiteur utilisé dans le fichier
+          type: string
+          required: true
+      responses:
+        200:
+          description: Succès
+          schema:
+            type: string
+  /getPersonne:
+    get:
+      summary: Récupérer les informations d'une personne
+      description: Récupérer les transactions d'une personne en fonction de son nom
+      parameters:
+        - in: formData
+          name: nom
+          description: Nom de la personne
+          type: string
+          required: true
+      responses:
+        200:
+          description: Succès
+          schema:
+            type: string
+  /getSoldePersonne:
+    get:
+      summary: Récupérer le solde d'une personne
+      description: Récupérer le solde d'une personne en fonction de son nom
+      parameters:
+        - in: formData
+          name: nom
+          description: Nom de la personne
+          type: string
+          required: true
+      responses:
+        200:
+          description: Succès
+          schema:
+            type: integer
