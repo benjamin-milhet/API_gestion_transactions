@@ -64,12 +64,12 @@ def chargerFichierTransaction(fichierTransaction, _delimiter):
                         liste_transaction[len(liste_transaction)] = transaction
 			
                         P1 = getPersonne(rowP1)
-		        P2 = getPersonne(rowP2)
+                        P2 = getPersonne(rowP2)
 
-		        P1.solde = int(P1.solde) - s 
+                        P1.solde = int(P1.solde) - s 
                         P2.solde = int(P2.solde) + s
-
-		        P1.transactions[len(P1.transactions)] = transaction
+			
+                        P1.transactions[len(P1.transactions)] = transaction
                         P2.transactions[len(P2.transactions)] = transaction
 			
         return "Nombre de transaction chargée : " + str(len(spamreader)) + "\n"
