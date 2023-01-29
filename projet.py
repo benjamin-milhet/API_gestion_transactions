@@ -56,18 +56,18 @@ def chargerFichierTransaction(fichierTransaction, _delimiter):
                 spamreader = csv.reader(csvfile, delimiter = _delimiter)
 
                 for row in spamreader:
-			rowP1 = row[0]
-			rowP2 = row[1]
-			date = row[2]
-			s = int(row[3])
-			transaction = (rowP1, rowP2, date, s)
+                        rowP1 = row[0]
+                        rowP2 = row[1]
+                        date = row[2]
+                        s = int(row[3])
+                        transaction = (rowP1, rowP2, date, s)
                         liste_transaction[len(liste_transaction)] = transaction
 			
-			P1 = getPersonne(rowP1)
+                        P1 = getPersonne(rowP1)
 		        P2 = getPersonne(rowP2)
 
-		        P1.solde = int(P1.solde) - s
-		        P2.solde = int(P2.solde) + s
+		        P1.solde = int(P1.solde) - s 
+                        P2.solde = int(P2.solde) + s
 
 		        P1.transactions[len(P1.transactions)] = transaction
                         P2.transactions[len(P2.transactions)] = transaction
