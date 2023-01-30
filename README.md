@@ -1,4 +1,10 @@
 # API de gestion de transactions
+
+## Membres du groupe
+ - Clément GHYS
+ - Benjamin MILHET
+ 
+ 
 Cette API développée en python a pour but de pouvoir gérer des transactions entre des personnes. 
 
 ## Fonctionnalités:
@@ -8,10 +14,6 @@ Cette API développée en python a pour but de pouvoir gérer des transactions e
  - Afficher le solde du compte de la personne.
  - Importer des données depuis un fichier csv.
 
-## Membres du groupe
- - Clément GHYS
- - Benjamin MILHET
- 
 ## ILC
 
 ## Langage
