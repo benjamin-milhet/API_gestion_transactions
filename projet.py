@@ -46,20 +46,25 @@ def chargerFichierCSV():
 
 def chargerFichierPersonne(fichierPersonne, _delimiter):
         with open(fichierPersonne, "r") as csvfile:
+                i = 0
                 spamreader = csv.reader(csvfile, delimiter = _delimiter)
                 for row in spamreader:
                         liste_personne.append(Personne(row[0],row[1]))
-        return "Nombre de personne chargée : " + str(len(spamreader)) + "\n"
+                        i += 1
+        return "Nombre de personne chargée : " + str(i) + "\n"
 
 def chargerFichierTransaction(fichierTransaction, _delimiter):
         with open(fichierTransaction, "r") as csvfile:
+                i = 0
                 spamreader = csv.reader(csvfile, delimiter = _delimiter)
 
                 for row in spamreader:
                         rowP1 = row[0]
                         rowP2 = row[1]
-                        date = row[2]
+                        splitDate = row[2].split(",")
+                        date = datetime.datetime(int(splitDate[0]), int(splitDate[1]), int(splitDate[2]), int(splitDate[3]), int(splitDate[4]), int(splitDate[5]), int(splitDate[6]))
                         s = int(row[3])
+                        print(rowP1, rowP2, date, s)
                         transaction = (rowP1, rowP2, date, s)
                         liste_transaction[len(liste_transaction)] = transaction
 			
@@ -71,8 +76,10 @@ def chargerFichierTransaction(fichierTransaction, _delimiter):
 			
                         P1.transactions[len(P1.transactions)] = transaction
                         P2.transactions[len(P2.transactions)] = transaction
+
+                        i += 1
 			
-        return "Nombre de transaction chargée : " + str(len(spamreader)) + "\n"
+        return "Nombre de transaction chargée : " + str(i) + "\n"
 
 @app.route("/getPersonne", methods=['GET'])
 def getDataPersonne():
