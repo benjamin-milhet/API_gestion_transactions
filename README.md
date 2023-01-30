@@ -1,5 +1,3 @@
-# GHYS_MILHET_4A_ILC_WORKFLOW
-
 # API de gestion de transactions
 Cette API développée en python a pour but de pouvoir gérer des transactions entre des personnes. 
 
