@@ -73,12 +73,12 @@ paths:
       parameters:
        - in: formData
           name: fichierPersonne
-          description: Nom du fichier
+          description: Charger le fichier contenant les personnes
           type: string
           required: true
         - in: formData
           name: fichierTransaction
-          description: Nom du fichier
+          description: Charger le fichier contenant les transactions
           type: string
           required: true
         - in: formData
