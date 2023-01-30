@@ -30,23 +30,23 @@ Le fichier Dockerfile contient plusieurs instructions. Chaque instruction est é
 Dans notre cas, nous avons utilisé les instructions suivantes :
 
 
-- FROM python:3.8 
+- FROM python:3.8 <br/>
 On utilise l'image python:3.8 comme image de base car c'est une image légère qui permet un build rapide.
 
 - RUN apt-get update 
-- RUN apt-get install python3-pip -y
+- RUN apt-get install python3-pip -y <br/>
 On installe pip pour pouvoir installer les dépendances du projet.
 
-- RUN pip install Flask
+- RUN pip install Flask <br/>
 On installe Flask pour pouvoir utiliser l'API.
 
-- COPY . .
+- COPY . . <br/>
 On copie le dossier courant dans le dossier courant du conteneur.
 
-- EXPOSE 5000
+- EXPOSE 5000 <br/>
 On indique que le conteneur va écouter sur le port 5000.
 
-- CMD ["flask", "run"]
+- CMD ["flask", "run"] <br/>
 On exécute la commande flask run pour lancer l'API.
 
 
