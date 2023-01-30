@@ -1,7 +1,9 @@
 # GHYS_MILHET_4A_ILC_WORKFLOW
 
 # API de gestion de transactions
-Cette API développée en python a pour but de pouvoir gérer des transactions entre des personnes. ### Fonctionnalités:
+Cette API développée en python a pour but de pouvoir gérer des transactions entre des personnes. 
+
+## Fonctionnalités:
  - Enregistrer une transaction.
  - Afficher une liste de toutes les transactions dans l’ordre chronologique.
  - Afficher une liste des transactions dans l’ordre chronologique liées à une personne.
