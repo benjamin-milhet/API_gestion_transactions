@@ -71,8 +71,13 @@ paths:
       summary: Charger un fichier
       description: Charger un fichier CSV contenant les informations des personnes
       parameters:
+       - in: formData
+          name: fichierPersonne
+          description: Nom du fichier
+          type: string
+          required: true
         - in: formData
-          name: fichier
+          name: fichierTransaction
           description: Nom du fichier
           type: string
           required: true
