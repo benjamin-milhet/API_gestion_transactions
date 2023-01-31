@@ -14,6 +14,7 @@ Cette API développée en python a pour but de pouvoir gérer des transactions e
  - Afficher une liste des transactions dans l’ordre chronologique liées à une personne.
  - Afficher le solde du compte de la personne.
  - Importer des données depuis un fichier csv.
+ - Vérification des transactions grâce à un hashage SHA-256
 
 
 ## Langage
@@ -24,7 +25,7 @@ Pour réaliser notre API, nous allons utiliser le langage Python avec le framewo
  - [Documentation de la classe Personne](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-Personne.md)
  - [Documentation du dockerfile](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-Dockerfile.md)
  - [Documentation du chargement des fichiers](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-chargerFichier.md)
-  - [Documentation du hachage](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-Hash.md)
+ - [Documentation du hachage](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-Hash.md)
  
 
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
