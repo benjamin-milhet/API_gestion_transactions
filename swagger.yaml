@@ -72,8 +72,8 @@ paths:
             example: "('Benjamin', 'Lucas', '01/30/2023, 21:00:42', 100, '654a974f6692753af64d91072c27d8dd1ca2d9952321a2ce2fc3f6c03d905954')"
   /chargerFichier:
     post:
-      summary: Charger un fichier
-      description: Charger un fichier CSV contenant les informations des personnes
+      summary: Charger deux fichiers CSV
+      description: Charger un fichier CSV contenant les informations des personnes et un autre fichier CSV contenant les transactions
       parameters:
         - in: formData
           name: fichierPersonne
@@ -98,7 +98,7 @@ paths:
             example: "Nombre de personne chargée : 5"
   /getPersonne:
     get:
-      summary: Récupérer les informations d'une personne
+      summary: Récupérer les informations d'une personne avec ses transactions
       description: Récupérer les transactions d'une personne en fonction de son nom
       parameters:
         - in: formData
