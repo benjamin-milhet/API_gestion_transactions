@@ -17,7 +17,7 @@ def hello_world():
 @app.route("/getTransactions", methods=['GET'])
 def getTransactions():
     # curl -X GET  http://127.0.0.1:5000/getTransactions
-    
+
 	res = ""
 	for i in sortTransactionsParDate(liste_transaction):
 		res += str(i[1]) + "\n"
@@ -92,10 +92,14 @@ def chargerFichierTransaction(fichierTransaction, _delimiter):
 
 @app.route("/getPersonne", methods=['GET'])
 def getDataPersonne():
+    # curl -X GET -d "nom=Benjamin"  http://127.0.0.1:5000/getPersonne
+
     return str(getPersonne(request.form.get("nom")))
 
 @app.route("/getSoldePersonne", methods=['GET'])
 def getSoldePersonne():
+    # curl -X GET -d "nom=Benjamin"  http://127.0.0.1:5000/getSoldePersonne
+    
     return str(getPersonne(request.form.get("nom")).solde)
 
 def sortTransactionsParDate(transactions):
