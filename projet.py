@@ -21,7 +21,7 @@ def getTransactions():
 	res = ""
 	for i in sortTransactionsParDate(liste_transaction):
 		res += str(i[1]) + "\n"
-	return res
+	return res + verifierTransaction()
 
 @app.route("/addTransaction", methods=['POST'])
 def add():
