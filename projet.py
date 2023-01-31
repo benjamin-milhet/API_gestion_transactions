@@ -99,8 +99,27 @@ def getDataPersonne():
 @app.route("/getSoldePersonne", methods=['GET'])
 def getSoldePersonne():
     # curl -X GET -d "nom=Benjamin"  http://127.0.0.1:5000/getSoldePersonne
-    
+
     return str(getPersonne(request.form.get("nom")).solde)
+
+@app.route("/verifierTransaction", methods=['GET'])
+def verifierTransaction():
+    # curl -X GET http://127.0.0.1:5000/verifierTransaction
+
+    res = ""
+
+    for i in liste_transaction:
+        transaction = liste_transaction[i]
+
+        P1 = getPersonne(transaction[0])
+        P2 = getPersonne(transaction[1])
+
+        h = hashlib.sha256((P1.name + P2.name + str(transaction[3])).encode('utf-8')).hexdigest()
+
+        if h != transaction[4]:
+            res += str(transaction) + " : " + "Transaction non valide !" + "\n"
+
+    return res
 
 def sortTransactionsParDate(transactions):
     return sorted(transactions.items(), key=lambda x: x[1][2])
