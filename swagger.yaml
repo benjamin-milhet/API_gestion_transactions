@@ -4,13 +4,13 @@ info:
   description: >-
     Cette API développée en python a pour but de pouvoir gérer des transactions
     entre des personnes.
-
     ### Fonctionnalités:
      - Enregistrer une transaction.
      - Afficher une liste de toutes les transactions dans l’ordre chronologique.
      - Afficher une liste des transactions dans l’ordre chronologique liées à une personne.
      - Afficher le solde du compte de la personne.
      - Importer des données depuis un fichier csv.
+     - Vérification des transactions grâce à un hashage SHA-256
   version: 'v1.0.0'
 
 host: 127.0.0.1:5000
@@ -32,15 +32,18 @@ paths:
           description: Succès
           schema:
             type: string
+            example: "Hello, world!"
   /getTransactions:
     get:
       summary: Récupérer les transactions
       description: Retourne les transactions classées par date
       responses:
         200:
-          description: Succès
+          description: L'ensemble des transactions
           schema:
             type: string
+            example: "('Benjamin', 'Lucas', '01/30/2023, 21:00:42', 100, '654a974f6692753af64d91072c27d8dd1ca2d9952321a2ce2fc3f6c03d905954')"
+          
   /addTransaction:
     post:
       summary: Ajouter une transaction
@@ -63,9 +66,10 @@ paths:
           required: true
       responses:
         200:
-          description: Succès
+          description: L'ensemble des transactions après l'ajout
           schema:
             type: string
+            example: "('Benjamin', 'Lucas', '01/30/2023, 21:00:42', 100, '654a974f6692753af64d91072c27d8dd1ca2d9952321a2ce2fc3f6c03d905954')"
   /chargerFichier:
     post:
       summary: Charger un fichier
@@ -88,9 +92,10 @@ paths:
           required: true
       responses:
         200:
-          description: Succès
+          description: Le nombre de données chargé pour chaque fichier
           schema:
             type: string
+            example: "Nombre de personne chargée : 5"
   /getPersonne:
     get:
       summary: Récupérer les informations d'une personne
@@ -103,9 +108,10 @@ paths:
           required: true
       responses:
         200:
-          description: Succès
+          description: La description d'une personne et toutes ses transactions
           schema:
             type: string
+            example: "name: Benjamin - solde: 373 ('Benjamin', 'Lucas', '01/30/2023, 21:00:42', 100, '654a974f6692753af64d91072c27d8dd1ca2d9952321a2ce2fc3f6c03d905954')"
   /getSoldePersonne:
     get:
       summary: Récupérer le solde d'une personne
@@ -118,6 +124,17 @@ paths:
           required: true
       responses:
         200:
-          description: Succès
+          description: Le solde de la personne
           schema:
             type: integer
+            example: 373
+  /verifierTransaction:
+    get:
+      summary: Vérifier le hashage des transactions existentes
+      description: Parcours l'ensemble des transactions et recalcule leurs hashs. Puis one le compare avec celui stockées. 
+      responses:
+        200:
+          description: L'ensemble des transactions avec un problème de hash
+          schema:
+            type: string
+            example: "('Benjamin', 'Lucas', '01/30/2023, 21:00:42', 100, '654a974f6692753af64d91072c27d8dd1ca2d9952321a2ce2fc3f6c03d905954') : Transaction non valide !"
