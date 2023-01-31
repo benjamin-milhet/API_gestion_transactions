@@ -8,6 +8,8 @@
 
 ## Documentation du Hachage
 
+Nous utilisons une fonctions de hachage afin de sécuriser nos transactions. Pour cela nous utilisons le nom des deux personnes et la somme du transfert d'argent.
+
 ### Choix de la fonction de Hachage
 
 Pour faire la Hash de nos transaction nous utilisons SHA-256.
