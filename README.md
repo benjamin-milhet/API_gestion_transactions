@@ -4,8 +4,8 @@
  - Clément GHYS
  - Benjamin MILHET
  
+## ILC
  
-
 ## Fonctionnalités:
 Cette API développée en python a pour but de pouvoir gérer des transactions entre des personnes. 
 
@@ -15,7 +15,6 @@ Cette API développée en python a pour but de pouvoir gérer des transactions e
  - Afficher le solde du compte de la personne.
  - Importer des données depuis un fichier csv.
 
-## ILC
 
 ## Langage
 Pour réaliser notre API, nous allons utiliser le langage Python avec le framework Flask permettant le dévelopement web avec Python. L'objectif de notre API est réaliser un système de transaction d'argent entre deux personnes.
