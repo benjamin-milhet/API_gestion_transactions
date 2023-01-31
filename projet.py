@@ -3,10 +3,11 @@ import datetime
 from personne import *
 import sys
 import csv
+import hashlib
 
 app = Flask(__name__)
 
-liste_transaction = {0: ("jean", "pierre", datetime.datetime.now(), 100)}
+liste_transaction = {}
 liste_personne = []
 
 @app.route("/")
@@ -15,6 +16,8 @@ def hello_world():
 
 @app.route("/getTransactions", methods=['GET'])
 def getTransactions():
+    # curl -X GET  http://127.0.0.1:5000/getTransactions
+    
 	res = ""
 	for i in sortTransactionsParDate(liste_transaction):
 		res += str(i[1]) + "\n"
@@ -22,12 +25,15 @@ def getTransactions():
 
 @app.route("/addTransaction", methods=['POST'])
 def add():
-    solde = int(request.form.get("s"))
-    transaction = (request.form.get("P1"), request.form.get("P2"), datetime.datetime.now(), solde)
-    liste_transaction[len(liste_transaction)] = transaction
+    # curl -X POST -d "P1=Lucas" -d "P2=Benjamin" -d "s=10" http://127.0.0.1:5000/addTransaction
 
+    solde = int(request.form.get("s"))
     P1 = getPersonne(request.form.get("P1"))
     P2 = getPersonne(request.form.get("P2"))
+    h = hashlib.sha256((P1.name + P2.name + str(solde)).encode('utf-8')).hexdigest()
+    
+    transaction = (P1.name, P2.name, datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"), solde, h)
+    liste_transaction[len(liste_transaction)] = transaction
 
     P1.solde = int(P1.solde) - solde
     P2.solde = int(P2.solde) + solde
@@ -39,6 +45,8 @@ def add():
 
 @app.route("/chargerFichier", methods=['POST'])
 def chargerFichierCSV():
+    # curl -X POST -d "fichierPersonne=data.csv" -d "fichierTransaction=transactions.csv"  -d "delimiter=;" http://127.0.0.1:5000/chargerFichier
+
     resPersonne = chargerFichierPersonne(request.form.get("fichierPersonne"), request.form.get("delimiter"))
     resTransaction = chargerFichierTransaction(request.form.get("fichierTransaction"), request.form.get("delimiter"))
 
@@ -62,10 +70,11 @@ def chargerFichierTransaction(fichierTransaction, _delimiter):
                         rowP1 = row[0]
                         rowP2 = row[1]
                         splitDate = row[2].split(",")
-                        date = datetime.datetime(int(splitDate[0]), int(splitDate[1]), int(splitDate[2]), int(splitDate[3]), int(splitDate[4]), int(splitDate[5]), int(splitDate[6]))
+                        date = datetime.datetime(int(splitDate[0]), int(splitDate[1]), int(splitDate[2]), int(splitDate[3]), int(splitDate[4]), int(splitDate[5]), int(splitDate[6])).strftime("%m/%d/%Y, %H:%M:%S")
                         s = int(row[3])
-                        print(rowP1, rowP2, date, s)
-                        transaction = (rowP1, rowP2, date, s)
+                        h = hashlib.sha256((rowP1 + rowP2 + str(s)).encode('utf-8')).hexdigest()
+
+                        transaction = (rowP1, rowP2, date, s, h)
                         liste_transaction[len(liste_transaction)] = transaction
 			
                         P1 = getPersonne(rowP1)
