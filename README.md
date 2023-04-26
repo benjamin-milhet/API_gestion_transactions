@@ -23,7 +23,7 @@ Cette API développée en python a pour but de pouvoir gérer des transactions e
  - Afficher une liste des transactions dans l’ordre chronologique liées à une personne.
  - Afficher le solde du compte de la personne.
  - Importer des données depuis un fichier csv.
- - Vérification des transactions grâce à un hashage SHA-256
+ - Vérification des transactions grâce à un hashage SHA-256.
 
 
 ## Langage
