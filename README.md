@@ -5,11 +5,11 @@
 
 [![](https://img.shields.io/badge/PROJET_TERMINÉ_🚀-059142?style=for-the-badge&logoColor=white)](https://dev.to/envoy_/150-badges-for-github-pnk) 
 
-[![newPush](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/main.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/main.yml)
-[![curl planete](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/curl.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC/actions/workflows/curl.yml)
-[![checkSyntax](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/checkSyntax.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/checkSyntax.yml)
-[![Docker Image CI](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/docker-image.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/docker-image.yml)
-[![Docker push GCR](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/Docker_push_GCR.yml/badge.svg)](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/actions/workflows/Docker_push_GCR.yml)
+[![newPush](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/main.yml/badge.svg)](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/main.yml)
+[![curl planete](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/curl.yml/badge.svg)](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/curl.yml)
+[![checkSyntax](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/checkSyntax.yml/badge.svg)](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/checkSyntax.yml)
+[![Docker Image CI](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/docker-image.yml/badge.svg)](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/docker-image.yml)
+[![Docker push GCR](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/Docker_push_GCR.yml/badge.svg)](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/Docker_push_GCR.yml)
 
 ## Membres du groupe
  - Clément GHYS
@@ -33,11 +33,11 @@ Pour réaliser notre API, nous allons utiliser le langage Python avec le framewo
 
 ## Documentation
 
- - [Fichier Swagger](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/swagger.yaml)
- - [Documentation de la classe Personne](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-Personne.md)
- - [Documentation du dockerfile](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-Dockerfile.md)
- - [Documentation du chargement des fichiers](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-chargerFichier.md)
- - [Documentation du hachage](https://github.com/benjamin-milhet/GHYS_MILHET_4A_ILC_WORKFLOW/blob/main/Readme-Hash.md) 
+ - [Fichier Swagger](https://github.com/benjamin-milhet/API_gestion_transactions/blob/main/swagger.yaml)
+ - [Documentation de la classe Personne](https://github.com/benjamin-milhet/API_gestion_transactions/blob/main/Readme-Personne.md)
+ - [Documentation du dockerfile](https://github.com/benjamin-milhet/API_gestion_transactions/blob/main/Readme-Dockerfile.md)
+ - [Documentation du chargement des fichiers](https://github.com/benjamin-milhet/API_gestion_transactions/blob/main/Readme-chargerFichier.md)
+ - [Documentation du hachage](https://github.com/benjamin-milhet/API_gestion_transactions/blob/main/Readme-Hash.md) 
 
 ## Exemples requêtes CURL
 ```
