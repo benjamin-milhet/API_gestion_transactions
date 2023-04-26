@@ -1,9 +1,7 @@
 # API de gestion de transactions
 
-[![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
-[![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
 
-[![](https://img.shields.io/badge/PROJET_TERMINÉ_🚀-059142?style=for-the-badge&logoColor=white)](https://dev.to/envoy_/150-badges-for-github-pnk) 
+<img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" /> <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" /> [![](https://img.shields.io/badge/PROJET_TERMINÉ_🚀-059142?style=for-the-badge&logoColor=white)](https://dev.to/envoy_/150-badges-for-github-pnk) 
 
 [![newPush](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/main.yml/badge.svg)](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/main.yml)
 [![curl planete](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/curl.yml/badge.svg)](https://github.com/benjamin-milhet/API_gestion_transactions/actions/workflows/curl.yml)
